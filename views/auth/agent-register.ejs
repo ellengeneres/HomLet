@@ -1,0 +1,103 @@
+
+
+<div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold text-gray-900">Create your agent account</h2>
+            <p class="mt-2 text-sm text-gray-600">
+                Already have an account?
+                <a href="/auth/login" class="font-medium text-blue-600 hover:text-blue-500">Sign in</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            <form class="space-y-6" action="/auth/agent-register" method="POST" enctype="multipart/form-data">
+                <div>
+                    <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name</label>
+                    <div class="mt-1">
+                        <input id="fullName" name="fullName" type="text" required
+                               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+                    <div class="mt-1">
+                        <input id="email" name="email" type="email" autocomplete="email" required
+                               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                    <div class="mt-1">
+                        <input id="phone" name="phone" type="tel" required
+                               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="commission" class="block text-sm font-medium text-gray-700">Commission Percentage (%)</label>
+                    <div class="mt-1">
+                        <input id="commission" name="commission" type="number" min="0" max="100" step="0.1" required
+                               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    </div>
+                    <p class="mt-1 text-sm text-gray-500">Enter your commission rate (e.g., 5 for 5%)</p>
+                </div>
+
+                <div>
+                    <label for="profilePicture" class="block text-sm font-medium text-gray-700">Profile Picture</label>
+                    <div class="mt-1">
+                        <input id="profilePicture" name="profilePicture" type="file" accept="image/*"
+                               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="bio" class="block text-sm font-medium text-gray-700">Bio / About</label>
+                    <div class="mt-1">
+                        <textarea id="bio" name="bio" rows="3"
+                                  class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                  placeholder="Tell clients about yourself and your experience..."></textarea>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <div class="mt-1">
+                        <input id="password" name="password" type="password" autocomplete="new-password" required
+                               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    </div>
+                    <p class="mt-1 text-sm text-gray-500">Must be at least 6 characters</p>
+                </div>
+
+                <div>
+                    <button type="submit"
+                            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Create Agent Account
+                    </button>
+                </div>
+            </form>
+
+            <div class="mt-6">
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-white text-gray-500">Or register as</span>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <a href="/auth/client-register"
+                       class="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Register as Client
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

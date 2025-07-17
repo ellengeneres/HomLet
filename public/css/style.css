@@ -1,0 +1,192 @@
+/* Custom styles for HomLet */
+
+.star:hover {
+    transform: scale(1.1);
+}
+
+.property-card {
+    transition: all 0.3s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #3B82F6, #8B5CF6);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Loading animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 3px solid #3498db;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+    .mobile-menu {
+        display: block;
+    }
+    
+    .desktop-menu {
+        display: none;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section p {
+        font-size: 1.125rem;
+    }
+}
+
+/* Form focus styles */
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    ring: 2px;
+    ring-color: #3B82F6;
+    border-color: #3B82F6;
+}
+
+/* Custom checkbox and radio styles */
+.custom-checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #d1d5db;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.custom-checkbox:checked {
+    background: #3B82F6;
+    border-color: #3B82F6;
+}
+
+.custom-checkbox:checked::after {
+    content: '✓';
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Animation for success messages */
+.alert-success {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effects for buttons */
+.btn-hover:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Image hover effects */
+.image-hover {
+    transition: transform 0.3s ease;
+}
+
+.image-hover:hover {
+    transform: scale(1.05);
+}
+
+/* Custom dropdown */
+.dropdown-menu {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+}
+
+/* Table hover effects */
+.table-hover tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Custom badge styles */
+.badge-custom {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+}
+
+/* Progress bar */
+.progress-bar {
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+    transition: width 0.3s ease;
+}
