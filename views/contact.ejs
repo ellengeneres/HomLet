@@ -6,100 +6,115 @@
         <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.8);">Get in touch with our team</p>
     </div>
 
-    <div class="grid grid-2" style="max-width: 1000px; margin: 0 auto;">
-        <!-- Contact Form -->
-        <div class="card">
-            <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #667eea;">Send us a Message</h2>
-            <form action="/contact" method="POST">
-                <div class="form-group">
-                    <label class="form-label">Name</label>
-                    <input type="text" name="name" required class="form-input">
-                </div>
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <div class="grid grid-2">
+            <!-- Contact Form -->
+            <div class="card">
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #667eea;">Send us a Message</h2>
+                <form action="/contact" method="POST">
+                    <div class="form-group">
+                        <label class="form-label">Name</label>
+                        <input type="text" name="name" required class="form-input" placeholder="Your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" required class="form-input" placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Subject</label>
+                        <input type="text" name="subject" required class="form-input" placeholder="What is this about?">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea name="message" rows="5" required class="form-input" placeholder="Tell us how we can help you..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary w-full">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="card">
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #667eea;">Contact Information</h2>
                 
-                <div class="form-group">
-                    <label class="form-label">Email</label>
-                    <input type="email" name="email" required class="form-input">
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                        <div style="font-size: 2rem;">📍</div>
+                        <div>
+                            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Address</h3>
+                            <p style="color: rgba(255, 255, 255, 0.8);">123 HomLet Street<br>Victoria Island, Lagos<br>Nigeria</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                        <div style="font-size: 2rem;">📞</div>
+                        <div>
+                            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Phone</h3>
+                            <p style="color: rgba(255, 255, 255, 0.8);">+234 800 HOMLET<br>+234 800 466 538</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                        <div style="font-size: 2rem;">📧</div>
+                        <div>
+                            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Email</h3>
+                            <p style="color: rgba(255, 255, 255, 0.8);">support@homlet.com<br>info@homlet.com</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                        <div style="font-size: 2rem;">🕒</div>
+                        <div>
+                            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Business Hours</h3>
+                            <p style="color: rgba(255, 255, 255, 0.8);">Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Subject</label>
-                    <input type="text" name="subject" required class="form-input">
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Message</label>
-                    <textarea name="message" rows="5" required class="form-input"></textarea>
-                </div>
-                
-                <button type="submit" class="btn btn-primary w-full">Send Message</button>
-            </form>
+            </div>
         </div>
 
-        <!-- Contact Information -->
-        <div class="card">
-            <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #667eea;">Contact Information</h2>
+        <!-- FAQ Section -->
+        <div class="card mt-4" style="margin-top: 2rem;">
+            <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #667eea;">Frequently Asked Questions</h2>
             
-            <div style="display: flex; flex-direction: column; gap: 2rem;">
-                <div style="display: flex; align-items: flex-start; gap: 1rem;">
-                    <div style="font-size: 2rem;">📍</div>
-                    <div>
-                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Address</h3>
-                        <p style="color: rgba(255, 255, 255, 0.8);">123 HomLet Street, Victoria Island, Lagos, Nigeria</p>
-                    </div>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">How much does it cost to unlock an agent's contact?</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8);">It costs ₦2,000 to unlock an agent's contact information. This is a one-time fee per agent, and you'll have permanent access to their contact details.</p>
                 </div>
                 
-                <div style="display: flex; align-items: flex-start; gap: 1rem;">
-                    <div style="font-size: 2rem;">📞</div>
-                    <div>
-                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Phone</h3>
-                        <p style="color: rgba(255, 255, 255, 0.8);">+234 800 123 4567</p>
-                    </div>
+                <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">How do I become an agent on HomLet?</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8);">Simply register as an agent, provide your details including commission rate and bio, upload a profile picture, and start uploading properties. All agents are verified before activation.</p>
                 </div>
                 
-                <div style="display: flex; align-items: flex-start; gap: 1rem;">
-                    <div style="font-size: 2rem;">📧</div>
-                    <div>
-                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Email</h3>
-                        <p style="color: rgba(255, 255, 255, 0.8);">support@homlet.com</p>
-                    </div>
+                <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Is my payment information secure?</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8);">Yes, we use Paystack for secure payment processing. Your payment information is encrypted and protected with industry-standard security measures.</p>
                 </div>
                 
-                <div style="display: flex; align-items: flex-start; gap: 1rem;">
-                    <div style="font-size: 2rem;">🕒</div>
-                    <div>
-                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Business Hours</h3>
-                        <p style="color: rgba(255, 255, 255, 0.8);">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                        <p style="color: rgba(255, 255, 255, 0.8);">Saturday: 10:00 AM - 4:00 PM</p>
-                        <p style="color: rgba(255, 255, 255, 0.8);">Sunday: Closed</p>
-                    </div>
+                <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Can I get a refund if I'm not satisfied?</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8);">Please contact our support team for refund requests. We review each case individually and aim to resolve issues fairly and promptly.</p>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">How do I report a problem with an agent?</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8);">You can report issues through our contact form or email us directly. We take all reports seriously and investigate promptly to maintain platform quality.</p>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- FAQ Section -->
-    <div class="card mt-4" style="max-width: 1000px; margin: 2rem auto 0;">
-        <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #667eea;">Frequently Asked Questions</h2>
-        
-        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-            <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">
-                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">How much does it cost to unlock an agent's contact?</h3>
-                <p style="color: rgba(255, 255, 255, 0.8);">It costs ₦2,000 to unlock an agent's contact information. This is a one-time fee per agent.</p>
-            </div>
-            
-            <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">
-                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">How do I become an agent on HomLet?</h3>
-                <p style="color: rgba(255, 255, 255, 0.8);">Simply register as an agent, provide your details including commission rate, and start uploading properties.</p>
-            </div>
-            
-            <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">
-                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Is my payment information secure?</h3>
-                <p style="color: rgba(255, 255, 255, 0.8);">Yes, we use Paystack for secure payment processing. Your payment information is encrypted and protected.</p>
-            </div>
-            
-            <div>
-                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Can I get a refund if I'm not satisfied?</h3>
-                <p style="color: rgba(255, 255, 255, 0.8);">Please contact our support team for refund requests. We'll review each case individually.</p>
+        <!-- Emergency Contact -->
+        <div class="card text-center mt-4" style="margin-top: 2rem; background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(238, 90, 82, 0.1));">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #ff6b6b;">Need Immediate Help?</h3>
+            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1.5rem;">For urgent issues or emergencies, contact us directly</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="tel:+2348004665538" class="btn btn-danger">📞 Call Now</a>
+                <a href="mailto:support@homlet.com" class="btn btn-secondary">📧 Email Support</a>
             </div>
         </div>
     </div>

@@ -6,6 +6,38 @@ const Property = require('../models/Property');
 const Deal = require('../models/Deal');
 const Rating = require('../models/Rating');
 
+// Admin login page (separate from regular login)
+router.get('/login', (req, res) => {
+  res.render('admin/login', { title: 'Admin Login - HomLet' });
+});
+
+// Handle admin login
+router.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email, role: 'admin' });
+
+    if (!user || !(await user.comparePassword(password))) {
+      req.flash('error_msg', 'Invalid admin credentials');
+      return res.redirect('/admin/login');
+    }
+
+    req.session.user = {
+      _id: user._id,
+      fullName: user.fullName,
+      email: user.email,
+      role: user.role
+    };
+
+    req.flash('success_msg', 'Admin login successful');
+    res.redirect('/admin/dashboard');
+  } catch (error) {
+    console.error('Admin login error:', error);
+    req.flash('error_msg', 'Login failed');
+    res.redirect('/admin/login');
+  }
+});
+
 // Admin dashboard
 router.get('/dashboard', isAuthenticated, isAdmin, async (req, res) => {
   try {
@@ -28,7 +60,7 @@ router.get('/dashboard', isAuthenticated, isAdmin, async (req, res) => {
       .limit(5);
 
     res.render('admin/dashboard', {
-      title: 'Admin Dashboard',
+      title: 'Admin Dashboard - HomLet',
       stats: {
         clientsCount,
         agentsCount,
@@ -46,6 +78,27 @@ router.get('/dashboard', isAuthenticated, isAdmin, async (req, res) => {
   }
 });
 
+// Users management (combined clients and agents)
+router.get('/users', isAuthenticated, isAdmin, async (req, res) => {
+  try {
+    const clients = await User.find({ role: 'client' })
+      .sort({ createdAt: -1 });
+    
+    const agents = await User.find({ role: 'agent' })
+      .sort({ createdAt: -1 });
+
+    res.render('admin/users', {
+      title: 'Manage Users - HomLet',
+      clients,
+      agents
+    });
+  } catch (error) {
+    console.error('Users management error:', error);
+    req.flash('error_msg', 'Error loading users');
+    res.redirect('/admin/dashboard');
+  }
+});
+
 // Clients management
 router.get('/clients', isAuthenticated, isAdmin, async (req, res) => {
   try {
@@ -53,7 +106,7 @@ router.get('/clients', isAuthenticated, isAdmin, async (req, res) => {
       .sort({ createdAt: -1 });
 
     res.render('admin/clients', {
-      title: 'Manage Clients',
+      title: 'Manage Clients - HomLet',
       clients
     });
   } catch (error) {
@@ -70,7 +123,7 @@ router.get('/agents', isAuthenticated, isAdmin, async (req, res) => {
       .sort({ createdAt: -1 });
 
     res.render('admin/agents', {
-      title: 'Manage Agents',
+      title: 'Manage Agents - HomLet',
       agents
     });
   } catch (error) {
@@ -88,7 +141,7 @@ router.get('/properties', isAuthenticated, isAdmin, async (req, res) => {
       .sort({ createdAt: -1 });
 
     res.render('admin/properties', {
-      title: 'Manage Properties',
+      title: 'Manage Properties - HomLet',
       properties
     });
   } catch (error) {
@@ -108,7 +161,7 @@ router.get('/deals', isAuthenticated, isAdmin, async (req, res) => {
       .sort({ createdAt: -1 });
 
     res.render('admin/deals', {
-      title: 'Manage Deals',
+      title: 'Manage Deals - HomLet',
       deals
     });
   } catch (error) {

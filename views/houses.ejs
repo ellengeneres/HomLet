@@ -3,9 +3,11 @@
 <div class="container" style="padding: 2rem 0;">
     <div style="margin-bottom: 2rem;">
         <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: #667eea;">Browse Properties</h1>
+        <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.1rem;">Discover your perfect home from our verified property listings</p>
         
         <!-- Filters -->
-        <div class="card" style="margin-bottom: 2rem;">
+        <div class="card" style="margin-top: 2rem;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: #667eea;">Filter Properties</h3>
             <form method="GET" action="/houses" class="grid grid-4" style="gap: 1rem;">
                 <div class="form-group" style="margin-bottom: 0;">
                     <label class="form-label">State</label>
@@ -18,12 +20,12 @@
                 </div>
                 
                 <div class="form-group" style="margin-bottom: 0;">
-                    <label class="form-label">Min Price</label>
+                    <label class="form-label">Min Price (₦)</label>
                     <input type="number" name="minPrice" value="<%= typeof filters !== 'undefined' && filters.minPrice ? filters.minPrice : '' %>" placeholder="Min price" class="form-input">
                 </div>
                 
                 <div class="form-group" style="margin-bottom: 0;">
-                    <label class="form-label">Max Price</label>
+                    <label class="form-label">Max Price (₦)</label>
                     <input type="number" name="maxPrice" value="<%= typeof filters !== 'undefined' && filters.maxPrice ? filters.maxPrice : '' %>" placeholder="Max price" class="form-input">
                 </div>
                 
@@ -56,6 +58,11 @@
                                 <%= property.propertyType === 'rent' ? 'For Rent' : 'For Sale' %>
                             </span>
                         </div>
+                        <div style="position: absolute; top: 1rem; right: 1rem;">
+                            <span style="background: rgba(0, 0, 0, 0.7); color: white; padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem;">
+                                👁️ <%= property.views %> views
+                            </span>
+                        </div>
                     </div>
                     
                     <div class="property-card-content">
@@ -66,7 +73,10 @@
                         
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                             <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.875rem;">
-                                <span>👁️ <%= property.views %> views</span>
+                                <span>By: <%= property.agent.fullName %></span>
+                            </div>
+                            <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.875rem;">
+                                <span><%= new Date(property.createdAt).toLocaleDateString() %></span>
                             </div>
                         </div>
                         
@@ -77,11 +87,19 @@
         <% } else { %>
             <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 0;">
                 <div style="color: rgba(255, 255, 255, 0.7);">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🏠</div>
                     <p style="font-size: 1.5rem; margin-bottom: 1rem;">No properties found matching your criteria</p>
                     <p>Try adjusting your filters or <a href="/houses" style="color: #667eea;">browse all properties</a></p>
                 </div>
             </div>
         <% } %>
+    </div>
+
+    <!-- Call to Action for Agents -->
+    <div class="card text-center" style="margin-top: 3rem; background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));">
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #667eea;">Are you a Real Estate Agent?</h3>
+        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1.5rem;">Join HomLet and start listing your properties to reach thousands of potential clients</p>
+        <a href="/auth/agent-register" class="btn btn-primary btn-lg">Become an Agent</a>
     </div>
 </div>
 

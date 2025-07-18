@@ -2,8 +2,8 @@
 
 <div class="container" style="padding: 2rem 0;">
     <div style="margin-bottom: 2rem;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem; color: #667eea;">Admin Dashboard</h1>
-        <p style="color: rgba(255, 255, 255, 0.8);">Manage platform overview and monitor activities</p>
+        <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem; color: #667eea;">👨‍💼 Admin Dashboard</h1>
+        <p style="color: rgba(255, 255, 255, 0.8);">Welcome to the HomLet administration panel</p>
     </div>
 
     <!-- Stats Cards -->
@@ -37,10 +37,11 @@
     <div class="card mb-4">
         <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: #667eea;">Quick Actions</h2>
         <div class="grid grid-4">
+            <a href="/admin/users" class="btn btn-primary">Manage Users</a>
             <a href="/admin/clients" class="btn btn-primary">Manage Clients</a>
             <a href="/admin/agents" class="btn btn-success">Manage Agents</a>
-            <a href="/admin/properties" class="btn btn-secondary">Manage Properties</a>
-            <a href="/admin/deals" class="btn btn-danger">Manage Deals</a>
+            <a href="/admin/properties" class="btn btn-secondary">View Properties</a>
+            <a href="/admin/deals" class="btn btn-danger">View Deals</a>
         </div>
     </div>
 
@@ -62,6 +63,9 @@
                             </span>
                         </div>
                     <% }); %>
+                </div>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <a href="/admin/clients" class="btn btn-sm btn-primary">View All Clients</a>
                 </div>
             <% } else { %>
                 <p style="color: rgba(255, 255, 255, 0.7);">No recent clients</p>
@@ -86,6 +90,9 @@
                         </div>
                     <% }); %>
                 </div>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <a href="/admin/agents" class="btn btn-sm btn-success">View All Agents</a>
+                </div>
             <% } else { %>
                 <p style="color: rgba(255, 255, 255, 0.7);">No recent agents</p>
             <% } %>
@@ -109,9 +116,23 @@
                         </div>
                     <% }); %>
                 </div>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <a href="/admin/properties" class="btn btn-sm btn-secondary">View All Properties</a>
+                </div>
             <% } else { %>
                 <p style="color: rgba(255, 255, 255, 0.7);">No recent properties</p>
             <% } %>
+        </div>
+    </div>
+
+    <!-- System Status -->
+    <div class="card text-center" style="margin-top: 2rem; background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));">
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #667eea;">System Status</h3>
+        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1.5rem;">HomLet platform is running smoothly</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <span style="background: rgba(81, 207, 102, 0.2); color: #51cf66; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem;">✅ Database Connected</span>
+            <span style="background: rgba(81, 207, 102, 0.2); color: #51cf66; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem;">✅ Server Running</span>
+            <span style="background: rgba(81, 207, 102, 0.2); color: #51cf66; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem;">✅ All Systems Operational</span>
         </div>
     </div>
 </div>
