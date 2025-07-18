@@ -1,161 +1,119 @@
+<%- include('../partials/header') %>
 
-
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="mb-8">
-        <h1 class="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
-        <p class="text-gray-600 mt-2">Manage platform overview and monitor activities</p>
+<div class="container" style="padding: 2rem 0;">
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem; color: #667eea;">Admin Dashboard</h1>
+        <p style="color: rgba(255, 255, 255, 0.8);">Manage platform overview and monitor activities</p>
     </div>
 
     <!-- Stats Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-        <div class="bg-white rounded-lg shadow-md p-6">
-            <div class="flex items-center">
-                <div class="bg-blue-100 rounded-full p-3 mr-4">
-                    <span class="text-blue-600 text-xl">👥</span>
-                </div>
-                <div>
-                    <p class="text-sm text-gray-600">Total Clients</p>
-                    <p class="text-2xl font-bold text-gray-900"><%= stats.clientsCount %></p>
-                </div>
-            </div>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span style="font-size: 2rem; margin-bottom: 1rem; display: block;">👥</span>
+            <span class="stat-number"><%= typeof stats !== 'undefined' ? stats.clientsCount : 0 %></span>
+            <span class="stat-label">Total Clients</span>
         </div>
 
-        <div class="bg-white rounded-lg shadow-md p-6">
-            <div class="flex items-center">
-                <div class="bg-green-100 rounded-full p-3 mr-4">
-                    <span class="text-green-600 text-xl">🏢</span>
-                </div>
-                <div>
-                    <p class="text-sm text-gray-600">Total Agents</p>
-                    <p class="text-2xl font-bold text-gray-900"><%= stats.agentsCount %></p>
-                </div>
-            </div>
+        <div class="stat-card">
+            <span style="font-size: 2rem; margin-bottom: 1rem; display: block;">🏢</span>
+            <span class="stat-number"><%= typeof stats !== 'undefined' ? stats.agentsCount : 0 %></span>
+            <span class="stat-label">Total Agents</span>
         </div>
 
-        <div class="bg-white rounded-lg shadow-md p-6">
-            <div class="flex items-center">
-                <div class="bg-purple-100 rounded-full p-3 mr-4">
-                    <span class="text-purple-600 text-xl">🏠</span>
-                </div>
-                <div>
-                    <p class="text-sm text-gray-600">Total Properties</p>
-                    <p class="text-2xl font-bold text-gray-900"><%= stats.propertiesCount %></p>
-                </div>
-            </div>
+        <div class="stat-card">
+            <span style="font-size: 2rem; margin-bottom: 1rem; display: block;">🏠</span>
+            <span class="stat-number"><%= typeof stats !== 'undefined' ? stats.propertiesCount : 0 %></span>
+            <span class="stat-label">Total Properties</span>
         </div>
 
-        <div class="bg-white rounded-lg shadow-md p-6">
-            <div class="flex items-center">
-                <div class="bg-yellow-100 rounded-full p-3 mr-4">
-                    <span class="text-yellow-600 text-xl">⏳</span>
-                </div>
-                <div>
-                    <p class="text-sm text-gray-600">Pending Deals</p>
-                    <p class="text-2xl font-bold text-gray-900"><%= stats.pendingDeals %></p>
-                </div>
-            </div>
+        <div class="stat-card">
+            <span style="font-size: 2rem; margin-bottom: 1rem; display: block;">⏳</span>
+            <span class="stat-number"><%= typeof stats !== 'undefined' ? stats.pendingDeals : 0 %></span>
+            <span class="stat-label">Pending Deals</span>
         </div>
     </div>
 
     <!-- Quick Actions -->
-    <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-        <h2 class="text-xl font-bold text-gray-900 mb-4">Quick Actions</h2>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <a href="/admin/clients" class="bg-blue-600 text-white text-center px-6 py-3 rounded-md hover:bg-blue-700 transition duration-300">
-                Manage Clients
-            </a>
-            <a href="/admin/agents" class="bg-green-600 text-white text-center px-6 py-3 rounded-md hover:bg-green-700 transition duration-300">
-                Manage Agents
-            </a>
-            <a href="/admin/properties" class="bg-purple-600 text-white text-center px-6 py-3 rounded-md hover:bg-purple-700 transition duration-300">
-                Manage Properties
-            </a>
-            <a href="/admin/deals" class="bg-yellow-600 text-white text-center px-6 py-3 rounded-md hover:bg-yellow-700 transition duration-300">
-                Manage Deals
-            </a>
+    <div class="card mb-4">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: #667eea;">Quick Actions</h2>
+        <div class="grid grid-4">
+            <a href="/admin/clients" class="btn btn-primary">Manage Clients</a>
+            <a href="/admin/agents" class="btn btn-success">Manage Agents</a>
+            <a href="/admin/properties" class="btn btn-secondary">Manage Properties</a>
+            <a href="/admin/deals" class="btn btn-danger">Manage Deals</a>
         </div>
     </div>
 
     <!-- Recent Activity -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div class="grid grid-3">
         <!-- Recent Clients -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="px-6 py-4 bg-gray-50 border-b">
-                <h3 class="text-lg font-semibold text-gray-900">Recent Clients</h3>
-            </div>
-            <div class="p-6">
-                <% if (recentClients && recentClients.length > 0) { %>
-                    <div class="space-y-4">
-                        <% recentClients.forEach(client => { %>
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <p class="font-medium text-gray-900"><%= client.fullName %></p>
-                                    <p class="text-sm text-gray-500"><%= client.email %></p>
-                                </div>
-                                <span class="text-sm text-gray-500">
-                                    <%= new Date(client.createdAt).toLocaleDateString() %>
-                                </span>
+        <div class="card">
+            <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: #667eea;">Recent Clients</h3>
+            <% if (typeof recentClients !== 'undefined' && recentClients && recentClients.length > 0) { %>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <% recentClients.forEach(client => { %>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div>
+                                <p style="font-weight: 600; color: #ffffff; margin-bottom: 0.25rem;"><%= client.fullName %></p>
+                                <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7);"><%= client.email %></p>
                             </div>
-                        <% }); %>
-                    </div>
-                <% } else { %>
-                    <p class="text-gray-500">No recent clients</p>
-                <% } %>
-            </div>
+                            <span style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.6);">
+                                <%= new Date(client.createdAt).toLocaleDateString() %>
+                            </span>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <p style="color: rgba(255, 255, 255, 0.7);">No recent clients</p>
+            <% } %>
         </div>
 
         <!-- Recent Agents -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="px-6 py-4 bg-gray-50 border-b">
-                <h3 class="text-lg font-semibold text-gray-900">Recent Agents</h3>
-            </div>
-            <div class="p-6">
-                <% if (recentAgents && recentAgents.length > 0) { %>
-                    <div class="space-y-4">
-                        <% recentAgents.forEach(agent => { %>
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <p class="font-medium text-gray-900"><%= agent.fullName %></p>
-                                    <p class="text-sm text-gray-500"><%= agent.email %></p>
-                                    <p class="text-sm text-gray-500">Commission: <%= agent.commission %>%</p>
-                                </div>
-                                <span class="text-sm text-gray-500">
-                                    <%= new Date(agent.createdAt).toLocaleDateString() %>
-                                </span>
+        <div class="card">
+            <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: #667eea;">Recent Agents</h3>
+            <% if (typeof recentAgents !== 'undefined' && recentAgents && recentAgents.length > 0) { %>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <% recentAgents.forEach(agent => { %>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div>
+                                <p style="font-weight: 600; color: #ffffff; margin-bottom: 0.25rem;"><%= agent.fullName %></p>
+                                <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7);"><%= agent.email %></p>
+                                <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7);">Commission: <%= agent.commission %>%</p>
                             </div>
-                        <% }); %>
-                    </div>
-                <% } else { %>
-                    <p class="text-gray-500">No recent agents</p>
-                <% } %>
-            </div>
+                            <span style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.6);">
+                                <%= new Date(agent.createdAt).toLocaleDateString() %>
+                            </span>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <p style="color: rgba(255, 255, 255, 0.7);">No recent agents</p>
+            <% } %>
         </div>
 
         <!-- Recent Properties -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="px-6 py-4 bg-gray-50 border-b">
-                <h3 class="text-lg font-semibold text-gray-900">Recent Properties</h3>
-            </div>
-            <div class="p-6">
-                <% if (recentProperties && recentProperties.length > 0) { %>
-                    <div class="space-y-4">
-                        <% recentProperties.forEach(property => { %>
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <p class="font-medium text-gray-900"><%= property.title %></p>
-                                    <p class="text-sm text-gray-500">by <%= property.agent.fullName %></p>
-                                    <p class="text-sm text-green-600">₦<%= property.price.toLocaleString() %></p>
-                                </div>
-                                <span class="text-sm text-gray-500">
-                                    <%= new Date(property.createdAt).toLocaleDateString() %>
-                                </span>
+        <div class="card">
+            <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: #667eea;">Recent Properties</h3>
+            <% if (typeof recentProperties !== 'undefined' && recentProperties && recentProperties.length > 0) { %>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <% recentProperties.forEach(property => { %>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div>
+                                <p style="font-weight: 600; color: #ffffff; margin-bottom: 0.25rem;"><%= property.title %></p>
+                                <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7);">by <%= property.agent.fullName %></p>
+                                <p style="font-size: 0.875rem; color: #51cf66;">₦<%= property.price.toLocaleString() %></p>
                             </div>
-                        <% }); %>
-                    </div>
-                <% } else { %>
-                    <p class="text-gray-500">No recent properties</p>
-                <% } %>
-            </div>
+                            <span style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.6);">
+                                <%= new Date(property.createdAt).toLocaleDateString() %>
+                            </span>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <p style="color: rgba(255, 255, 255, 0.7);">No recent properties</p>
+            <% } %>
         </div>
     </div>
 </div>
+
+<%- include('../partials/footer') %>

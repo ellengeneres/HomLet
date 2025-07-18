@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title !== 'undefined' ? title : 'HomLet - Property Listing Platform' %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="/" class="logo">🏠 HomLet</a>
+            <ul class="nav-links">
+                <% if (typeof user !== 'undefined' && user) { %>
+                    <li><span style="color: rgba(255, 255, 255, 0.7);">Welcome, <%= user.fullName %></span></li>
+                    <% if (user.role === 'client') { %>
+                        <li><a href="/client/dashboard">Dashboard</a></li>
+                    <% } else if (user.role === 'agent') { %>
+                        <li><a href="/agent/dashboard">Dashboard</a></li>
+                    <% } else if (user.role === 'admin') { %>
+                        <li><a href="/admin/dashboard">Admin Panel</a></li>
+                    <% } %>
+                    <li>
+                        <form action="/auth/logout" method="POST" style="display: inline;">
+                            <button type="submit" class="btn btn-danger" style="padding: 8px 16px; font-size: 0.9rem;">Logout</button>
+                        </form>
+                    </li>
+                <% } else { %>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/houses">Find Houses</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/auth/login">Login</a></li>
+                    <li><a href="/auth/client-register" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.9rem;">Register</a></li>
+                <% } %>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Flash Messages -->
+    <% if (typeof success_msg !== 'undefined' && success_msg && success_msg.length > 0) { %>
+        <div class="alert alert-success" style="margin: 1rem 2rem;">
+            <%= success_msg %>
+        </div>
+    <% } %>
+
+    <% if (typeof error_msg !== 'undefined' && error_msg && error_msg.length > 0) { %>
+        <div class="alert alert-error" style="margin: 1rem 2rem;">
+            <%= error_msg %>
+        </div>
+    <% } %>
+
+    <main>

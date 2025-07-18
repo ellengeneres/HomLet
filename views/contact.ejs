@@ -1,84 +1,76 @@
+<%- include('partials/header') %>
 
-
-<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
-        <p class="text-xl text-gray-600">Get in touch with our team</p>
+<div class="container" style="padding: 2rem 0;">
+    <div style="text-align: center; margin-bottom: 3rem;">
+        <h1 style="font-size: 3rem; margin-bottom: 1rem; color: #667eea;">Contact Us</h1>
+        <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.8);">Get in touch with our team</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="grid grid-2" style="max-width: 1000px; margin: 0 auto;">
         <!-- Contact Form -->
-        <div class="bg-white rounded-lg shadow-md p-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
-            <form action="/contact" method="POST" class="space-y-4">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                    <input type="text" name="name" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+        <div class="card">
+            <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #667eea;">Send us a Message</h2>
+            <form action="/contact" method="POST">
+                <div class="form-group">
+                    <label class="form-label">Name</label>
+                    <input type="text" name="name" required class="form-input">
                 </div>
                 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                    <input type="email" name="email" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="email" required class="form-input">
                 </div>
                 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
-                    <input type="text" name="subject" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                <div class="form-group">
+                    <label class="form-label">Subject</label>
+                    <input type="text" name="subject" required class="form-input">
                 </div>
                 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                    <textarea name="message" rows="5" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"></textarea>
+                <div class="form-group">
+                    <label class="form-label">Message</label>
+                    <textarea name="message" rows="5" required class="form-input"></textarea>
                 </div>
                 
-                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition duration-300">Send Message</button>
+                <button type="submit" class="btn btn-primary w-full">Send Message</button>
             </form>
         </div>
 
         <!-- Contact Information -->
-        <div class="bg-white rounded-lg shadow-md p-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
+        <div class="card">
+            <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #667eea;">Contact Information</h2>
             
-            <div class="space-y-6">
-                <div class="flex items-start">
-                    <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mr-4">
-                        <span class="text-blue-600 text-xl">📍</span>
-                    </div>
+            <div style="display: flex; flex-direction: column; gap: 2rem;">
+                <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                    <div style="font-size: 2rem;">📍</div>
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-900">Address</h3>
-                        <p class="text-gray-600">123 HomLet Street, Victoria Island, Lagos, Nigeria</p>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Address</h3>
+                        <p style="color: rgba(255, 255, 255, 0.8);">123 HomLet Street, Victoria Island, Lagos, Nigeria</p>
                     </div>
                 </div>
                 
-                <div class="flex items-start">
-                    <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mr-4">
-                        <span class="text-blue-600 text-xl">📞</span>
-                    </div>
+                <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                    <div style="font-size: 2rem;">📞</div>
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-900">Phone</h3>
-                        <p class="text-gray-600">+234 800 123 4567</p>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Phone</h3>
+                        <p style="color: rgba(255, 255, 255, 0.8);">+234 800 123 4567</p>
                     </div>
                 </div>
                 
-                <div class="flex items-start">
-                    <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mr-4">
-                        <span class="text-blue-600 text-xl">📧</span>
-                    </div>
+                <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                    <div style="font-size: 2rem;">📧</div>
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-900">Email</h3>
-                        <p class="text-gray-600">support@homlet.com</p>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Email</h3>
+                        <p style="color: rgba(255, 255, 255, 0.8);">support@homlet.com</p>
                     </div>
                 </div>
                 
-                <div class="flex items-start">
-                    <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mr-4">
-                        <span class="text-blue-600 text-xl">🕒</span>
-                    </div>
+                <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                    <div style="font-size: 2rem;">🕒</div>
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-900">Business Hours</h3>
-                        <p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                        <p class="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
-                        <p class="text-gray-600">Sunday: Closed</p>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Business Hours</h3>
+                        <p style="color: rgba(255, 255, 255, 0.8);">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        <p style="color: rgba(255, 255, 255, 0.8);">Saturday: 10:00 AM - 4:00 PM</p>
+                        <p style="color: rgba(255, 255, 255, 0.8);">Sunday: Closed</p>
                     </div>
                 </div>
             </div>
@@ -86,29 +78,31 @@
     </div>
 
     <!-- FAQ Section -->
-    <div class="bg-white rounded-lg shadow-md p-8 mt-12">
-        <h2 class="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+    <div class="card mt-4" style="max-width: 1000px; margin: 2rem auto 0;">
+        <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #667eea;">Frequently Asked Questions</h2>
         
-        <div class="space-y-4">
-            <div class="border-b border-gray-200 pb-4">
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">How much does it cost to unlock an agent's contact?</h3>
-                <p class="text-gray-600">It costs ₦2,000 to unlock an agent's contact information. This is a one-time fee per agent.</p>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">How much does it cost to unlock an agent's contact?</h3>
+                <p style="color: rgba(255, 255, 255, 0.8);">It costs ₦2,000 to unlock an agent's contact information. This is a one-time fee per agent.</p>
             </div>
             
-            <div class="border-b border-gray-200 pb-4">
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">How do I become an agent on HomLet?</h3>
-                <p class="text-gray-600">Simply register as an agent, provide your details including commission rate, and start uploading properties.</p>
+            <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">How do I become an agent on HomLet?</h3>
+                <p style="color: rgba(255, 255, 255, 0.8);">Simply register as an agent, provide your details including commission rate, and start uploading properties.</p>
             </div>
             
-            <div class="border-b border-gray-200 pb-4">
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">Is my payment information secure?</h3>
-                <p class="text-gray-600">Yes, we use Paystack for secure payment processing. Your payment information is encrypted and protected.</p>
+            <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Is my payment information secure?</h3>
+                <p style="color: rgba(255, 255, 255, 0.8);">Yes, we use Paystack for secure payment processing. Your payment information is encrypted and protected.</p>
             </div>
             
             <div>
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">Can I get a refund if I'm not satisfied?</h3>
-                <p class="text-gray-600">Please contact our support team for refund requests. We'll review each case individually.</p>
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff;">Can I get a refund if I'm not satisfied?</h3>
+                <p style="color: rgba(255, 255, 255, 0.8);">Please contact our support team for refund requests. We'll review each case individually.</p>
             </div>
         </div>
     </div>
 </div>
+
+<%- include('partials/footer') %>
